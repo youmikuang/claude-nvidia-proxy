@@ -4,8 +4,10 @@ services:
     container_name: claude-nvidia-proxy
     ports:
       - "3001:3001"
-    # environment:
-      # - ADDR=:3001
+    volumes:
+      - ./config.json:/app/config.json:ro
+    environment:
+      - ADDR=:3001
       # - UPSTREAM_URL=https://integrate.api.nvidia.com/v1/chat/completions
       #- PROVIDER_API_KEY=${NVIDIA_API_KEY}
       # - SERVER_API_KEY=your-server-api-key
