@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Build artifacts
+claude-nvidia-proxy
+*.exe
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+LICENSE

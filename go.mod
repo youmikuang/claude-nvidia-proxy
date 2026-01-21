@@ -1,4 +1,3 @@
 module claude-nvidia-proxy
 
-go 1.22
-
+go 1.25.6

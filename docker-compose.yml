@@ -1,0 +1,22 @@
+services:
+  claude-nvidia-proxy:
+    build: .
+    container_name: claude-nvidia-proxy
+    ports:
+      - "3001:3001"
+    # environment:
+      # - ADDR=:3001
+      # - UPSTREAM_URL=https://integrate.api.nvidia.com/v1/chat/completions
+      #- PROVIDER_API_KEY=${NVIDIA_API_KEY}
+      # - SERVER_API_KEY=your-server-api-key
+      # - UPSTREAM_TIMEOUT_SECONDS=300
+      # - LOG_BODY_MAX_CHARS=4096
+      # - LOG_STREAM_TEXT_PREVIEW_CHARS=256
+      # - TZ=Asia/Shanghai
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
